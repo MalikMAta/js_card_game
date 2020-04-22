@@ -1,0 +1,16 @@
+.body,
+html {
+  margin: 0;
+  padding: 0;
+  align-content: center;
+}
+
+.grid {
+  height: 500px;
+  width: 500px;
+  background-color: black;
+  align-content: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
