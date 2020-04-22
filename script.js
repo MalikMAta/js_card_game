@@ -8,19 +8,19 @@ const imageArray = [
     img: "/Images/Gray_back.jpg",
   },
   {
-    name: "blue",
+    name: "green",
     img: "/Images/Green_back.jpg",
   },
   {
-    name: "blue",
+    name: "purple",
     img: "Images/purple_back.jpg",
   },
   {
-    name: "blue",
+    name: "red",
     img: "Images/red_back.jpg",
   },
   {
-    name: "blue",
+    name: "yellow",
     img: "Images/yellow_back.jpg",
   },
   {
@@ -32,37 +32,55 @@ const imageArray = [
     img: "/Images/Gray_back.jpg",
   },
   {
-    name: "blue",
+    name: "green",
     img: "/Images/Green_back.jpg",
   },
   {
-    name: "blue",
+    name: "purple",
     img: "/Images/purple_back.jpg",
   },
   {
-    name: "blue",
+    name: "red",
     img: "/Images/red_back.jpg",
   },
   {
-    name: "blue",
+    name: "yellow",
     img: "/Images/yellow_back.jpg",
   },
 ];
 
 const cardChosen = [];
 const cardChoseId = [];
+const cardsWon = [];
 
 const grid = document.querySelector(".grid");
 
 function createBoard() {
   for (let i = 0; i < imageArray.length; i++) {
-    var id = document.createElement("img");
-    id.setAttribute("src", "/images/honor_diamond.jpg");
-    id.style.width = "100";
-    id.style.height = "100";
-    id.setAttribute("data-id", i);
-    id.addEventListener("click", flipCard);
-    grid.appendChild(id);
+    var card = document.createElement("img");
+    card.setAttribute("src", "/images/honor_diamond.jpg");
+    card.style.width = "100";
+    card.style.height = "100";
+    card.setAttribute("data-id", i);
+    card.addEventListener("click", flipCard);
+    grid.appendChild(card);
+  }
+}
+
+// Check For Match
+function checkForMatches() {
+  const cards = document.querySelector("img");
+  const matchOne = cardChoseId[0];
+  const matchTwo = cardChoseId[1];
+  if (cardChosen[0] === cardChosen[1]) {
+    alert("Match Found");
+    cards[matchOne].setAttribute("src", "Images/As.jpg");
+    cards[matchTwo].setAttribute("src", "Images/As.jpg");
+    cardsWon.push(cardChosen);
+  } else {
+    alert("No Martch Found");
+    cards[matchOne].setAttribute("src", "/images/honor_diamond.jpg");
+    cards[matchTwo].setAttribute("src", "/images/honor_diamond.jpg");
   }
 }
 
@@ -72,19 +90,10 @@ function flipCard() {
   const cardId = this.getAttribute("data-id");
   cardChosen.push(imageArray[cardId].name);
   cardChoseId.push(cardId);
+  console.log(cardChosen);
   this.setAttribute("src", imageArray[cardId].img);
-  if (cardChose.length > "2") {
-    setTimeout(checkForMatch, 500);
-  }
-}
-
-function checkForMatches() {
-  const cards = document.querySelector("img");
-  const matchOne = cardChoseId[0];
-  const matchTwo = cardChoseId[1];
-  if (cardChosen[0] == cardChosen[1]) {
-    alert("Match Found");
-  } else {
+  if (cardChosen.length === 2) {
+    setTimeout(checkForMatches, 500);
   }
 }
 
