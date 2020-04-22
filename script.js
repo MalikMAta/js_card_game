@@ -23,6 +23,30 @@ const imageArray = [
     name: "blue",
     img: "/images/yellow_black.jpg",
   },
+  {
+    name: "blue",
+    img: "/images/blue_black.jpg",
+  },
+  {
+    name: "grey",
+    img: "/images/Gray_black.jpg",
+  },
+  {
+    name: "blue",
+    img: "/images/Gree_black.jpg",
+  },
+  {
+    name: "blue",
+    img: "/images/purple_black.jpg",
+  },
+  {
+    name: "blue",
+    img: "/images/red_black.jpg",
+  },
+  {
+    name: "blue",
+    img: "/images/yellow_black.jpg",
+  },
 ];
 
 const grid = document.querySelector(".grid");

@@ -9,8 +9,6 @@ html {
   height: 500px;
   width: 500px;
   background-color: black;
-  align-content: center;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
