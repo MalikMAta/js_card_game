@@ -74,23 +74,23 @@ function checkForMatches() {
   const matchTwo = cardChoseId[1];
   if (cardChosen[0] === cardChosen[1]) {
     alert("Match Found");
-    cards[matchOne].setAttribute("src", "Images/As.jpg");
-    cards[matchTwo].setAttribute("src", "Images/As.jpg");
+    cards[matchOne].setAttribute("src", "/Images/AS.jpg");
+    cards[matchTwo].setAttribute("src", "/Images/AS.jpg");
     cardsWon.push(cardChosen);
   } else {
-    alert("No Martch Found");
     cards[matchOne].setAttribute("src", "/images/honor_diamond.jpg");
     cards[matchTwo].setAttribute("src", "/images/honor_diamond.jpg");
+    alert("No Martch Found");
   }
 }
 
 // Flip Card
-
 function flipCard() {
   const cardId = this.getAttribute("data-id");
   cardChosen.push(imageArray[cardId].name);
   cardChoseId.push(cardId);
   console.log(cardChosen);
+  console.log(cardChoseId);
   this.setAttribute("src", imageArray[cardId].img);
   if (cardChosen.length === 2) {
     setTimeout(checkForMatches, 500);
